@@ -15,13 +15,27 @@ function AgregarGasto() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
+    //DESAFIO 4:
+    // Aqui esta la segunda validación para que la cantidad sea mayor a 0
+    const cantidad = parseFloat(formData.cantidad)
+    if (cantidad <= 0) {
+      alert('La cantidad debe ser mayor a 0.')
+      return
+    }
+    
+    // Aqui agregue la validación para que no admita menos de 3 caracteres
+    if (formData.descripcion.trim().length < 3) {
+    alert('La descripción debe tener al menos 3 caracteres.')
+    return
+    }
+
     if (formData.descripcion && formData.cantidad) {
       const nuevoGasto: Gasto = {
         id: Date.now().toString(),
         descripcion: formData.descripcion,
         cantidad: parseFloat(formData.cantidad),
         categoria: formData.categoria,
-        fecha: formData.fecha
+        fecha: formData.fecha,
       }
       
       const gastosGuardados = localStorage.getItem('gastos')
@@ -29,8 +43,11 @@ function AgregarGasto() {
       gastos.push(nuevoGasto)
       localStorage.setItem('gastos', JSON.stringify(gastos))
       
+      //DESAFIO 9
+      // Aqui verificamos que la navegación ya esta implementado
       alert('Gasto agregado exitosamente!')
       navigate('/lista')
+      
     } else {
       alert('Por favor completa todos los campos')
     }
@@ -85,6 +102,7 @@ function AgregarGasto() {
             <option value="transporte">Transporte</option>
             <option value="entretenimiento">Entretenimiento</option>
             <option value="estudios">Estudios</option>
+            <option value="salud">Salud</option>
             <option value="otros">Otros</option>
           </select>
         </div>

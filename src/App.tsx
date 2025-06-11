@@ -8,10 +8,14 @@ import Resumen from './pages/Resumen'
 
 function App() {
   return (
+
+
+    //DESAFIO 2 
+    // Realizado el cambio de nombre del titulo
     <Router>
       <div className="app-container">
         <header className="app-header">
-          <h1>Control de Gastos - Estudiante</h1>
+          <h1>Mi Gestor de Gastos Personales</h1>
           <nav>
             <ul className="nav-menu">
               <li><Link to="/">Inicio</Link></li>

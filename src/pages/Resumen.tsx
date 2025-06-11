@@ -42,6 +42,9 @@ function Resumen() {
     setResumenCategorias(Object.values(resumen))
     setTotalGeneral(total)
   }
+  //DESAFIO 7
+  // Agregar nuevo metodo para mostrar el Gasto Promedio
+ 
 
   const calcularPorcentaje = (cantidad: number) => {
     return totalGeneral > 0 ? ((cantidad / totalGeneral) * 100).toFixed(1) : '0'
@@ -56,6 +59,10 @@ function Resumen() {
 
   const gastoMayor = obtenerGastoMayor()
 
+  //DESAFIO 7
+  // Agregar nuevo metodo para mostrar el Gasto Promedio y total General
+  const promedioGastos = gastos.length > 0 ? totalGeneral / gastos.length : 0
+
   return (
     <div className="resumen-container">
       <h2>Resumen de Gastos</h2>
@@ -69,6 +76,11 @@ function Resumen() {
           <div className="resumen-total">
             <h3>Total General</h3>
             <p className="total-cantidad">S/. {totalGeneral.toFixed(2)}</p>
+  
+            <p className='total-promedio'> 
+                Gasto promedio: s/. {promedioGastos.toFixed(2)}
+            </p>
+            
             <p className="total-gastos">Total de gastos registrados: {gastos.length}</p>
           </div>
 
