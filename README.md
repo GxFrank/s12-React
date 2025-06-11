@@ -34,4 +34,4 @@ src/
 ├── App.tsx        # Componente principal
 ├── App.css        # Estilos de la aplicación
 └── main.tsx       # Punto de entrada
-```
+```# s12-React
